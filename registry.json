@@ -1,0 +1,14 @@
+[
+  {
+    "id": "clipboard-history",
+    "name": "Clipboard History",
+    "version": "1.0.0",
+    "author": "Michael",
+    "description": "Tracks your clipboard history with add, paste, and delete support. Monitors Wayland clipboard via wl-paste.",
+    "tags": ["Bar", "Panel", "Clipboard", "Productivity"],
+    "repository": "https://github.com/mcwiseman97/Clipboard-History",
+    "minNoctaliaVersion": "3.6.0",
+    "license": "MIT",
+    "path": "clipboard-history"
+  }
+]
