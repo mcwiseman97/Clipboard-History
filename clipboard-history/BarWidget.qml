@@ -25,7 +25,7 @@ Rectangle {
     // ─── Appearance ───────────────────────────────────────────────────────────
     implicitWidth:  row.implicitWidth + Style.marginM * 2
     implicitHeight: Style.barHeight
-    color:          hoverArea.containsMouse ? Style.capsuleColorHover : Style.capsuleColor
+    color:          mouseArea.containsMouse ? Style.capsuleColorHover : Style.capsuleColor
     radius:         Style.radiusM
 
     Behavior on color { ColorAnimation { duration: 120 } }
@@ -39,7 +39,6 @@ Rectangle {
         NIcon {
             icon:  "clipboard"
             color: Color.mPrimary
-            size:  Style.iconSizeS
         }
 
         NText {
@@ -51,9 +50,10 @@ Rectangle {
     }
 
     // ─── Interaction ──────────────────────────────────────────────────────────
-    HoverHandler { id: hoverArea }
-
-    TapHandler {
-        onTapped: pluginApi?.togglePanel(root.screen, root)
+    MouseArea {
+        id: mouseArea
+        anchors.fill: parent
+        hoverEnabled: true
+        onClicked: pluginApi?.togglePanel(root.screen, root)
     }
 }

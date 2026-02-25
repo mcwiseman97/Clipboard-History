@@ -26,7 +26,7 @@ Rectangle {
 
     // ─── Appearance ───────────────────────────────────────────────────────────
     implicitHeight: row.implicitHeight + Style.marginS * 2
-    color:          hoverArea.containsMouse
+    color:          mouseArea.containsMouse
                         ? Color.mSurfaceContainerHigh
                         : Color.mSurfaceContainer
     radius:         Style.radiusS
@@ -35,21 +35,20 @@ Rectangle {
 
     // ─── Layout ───────────────────────────────────────────────────────────────
     RowLayout {
-        id:              row
+        id: row
         anchors {
-            left:   parent.left
-            right:  parent.right
-            top:    parent.top
-            bottom: parent.bottom
+            left:    parent.left
+            right:   parent.right
+            top:     parent.top
+            bottom:  parent.bottom
             margins: Style.marginS
         }
         spacing: Style.marginS
 
-        // Type badge (multiline vs single)
+        // Type badge
         NIcon {
             icon:  root.isMultiLine ? "align-left" : "minus"
             color: Color.mOnSurfaceVariant
-            size:  Style.iconSizeXS
         }
 
         // Preview text
@@ -64,38 +63,31 @@ Rectangle {
         // Action buttons — visible on hover
         RowLayout {
             spacing: Style.marginXS
-            opacity: hoverArea.containsMouse ? 1 : 0
+            opacity: mouseArea.containsMouse ? 1 : 0
             Behavior on opacity { NumberAnimation { duration: 120 } }
 
-            // Copy button
             NIconButton {
-                icon:    "copy"
-                tooltip: "Copy to clipboard"
-                size:    Style.iconSizeS
+                icon:     "copy"
                 onClicked: root.copyClicked()
             }
 
-            // Delete button
             NIconButton {
-                icon:    "trash"
-                tooltip: "Remove entry"
-                size:    Style.iconSizeS
-                color:   Color.mError
+                icon:     "trash"
                 onClicked: root.deleteClicked()
             }
         }
     }
 
-    // ─── Hover + tap ──────────────────────────────────────────────────────────
-    HoverHandler { id: hoverArea }
-
-    TapHandler {
-        // Single click copies the entry
-        onTapped: root.copyClicked()
+    // ─── Interaction ──────────────────────────────────────────────────────────
+    MouseArea {
+        id: mouseArea
+        anchors.fill: parent
+        hoverEnabled: true
+        onClicked: root.copyClicked()
     }
 
     ToolTip {
-        visible: hoverArea.containsMouse && root.text.length > root.previewLen
+        visible: mouseArea.containsMouse && root.text.length > root.previewLen
         text:    root.text
         delay:   600
     }
