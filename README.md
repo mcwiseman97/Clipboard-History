@@ -32,7 +32,7 @@ sudo pacman -S wl-clipboard
 
 ```bash
 # Clone into Noctalia's plugin folder
-git clone https://github.com/yourusername/clipboard-history \
+git clone https://github.com/mcwiseman97/Clipboard-History \
     ~/.config/noctalia/plugins/clipboard-history
 
 # Restart Noctalia
