@@ -1,7 +1,7 @@
 [
   {
-    "id": "clipboard-history",
-    "name": "Clipboard History",
+    "id": "mcw-clipboard-history",
+    "name": "Clipboard History (mcwiseman97)",
     "version": "1.0.0",
     "author": "Michael",
     "description": "Tracks your clipboard history with add, paste, and delete support. Monitors Wayland clipboard via wl-paste.",
