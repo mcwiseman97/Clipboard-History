@@ -9,6 +9,6 @@
     "repository": "https://github.com/mcwiseman97/Clipboard-History",
     "minNoctaliaVersion": "3.6.0",
     "license": "MIT",
-    "path": "clipboard-history"
+    "path": "mcw-clipboard-history"
   }
 ]
