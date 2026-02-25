@@ -1,0 +1,27 @@
+{
+  "id": "clipboard-history",
+  "name": "Clipboard History",
+  "version": "1.0.0",
+  "minNoctaliaVersion": "3.6.0",
+  "author": "Michael",
+  "license": "MIT",
+  "repository": "https://github.com/yourusername/clipboard-history",
+  "description": "Tracks your clipboard history with the ability to add, paste, and delete entries from a bar panel.",
+  "tags": ["Bar", "Panel", "Clipboard", "Productivity"],
+  "entryPoints": {
+    "main": "Main.qml",
+    "barWidget": "BarWidget.qml",
+    "panel": "Panel.qml",
+    "settings": "Settings.qml"
+  },
+  "dependencies": {
+    "plugins": []
+  },
+  "metadata": {
+    "defaultSettings": {
+      "maxHistory": 50,
+      "showPreviewLength": 60,
+      "monitorClipboard": true
+    }
+  }
+}
